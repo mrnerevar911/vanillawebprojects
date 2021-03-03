@@ -67,10 +67,6 @@ function getRandomNumber() {
 recognition.addEventListener('result', onSpeak);
 
 // End SR service
-recognition.addEventListener('end', () => recognition.start());
+recognition.addEventListener('end', recognition.start);
 
-document.body.addEventListener('click', e => {
-  if (e.target.id == 'play-again') {
-    window.location.reload();
-  }
-});
+document.body.addEventListener('click', e => e.target.id == 'play-again' &&  window.location.reload());
